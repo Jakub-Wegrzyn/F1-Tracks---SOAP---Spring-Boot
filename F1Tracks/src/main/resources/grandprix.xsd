@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+           xmlns:tns = "http://sri4f1tracks.jwegrzyn.sri.pja.edu/grandprix"
+           targetNamespace="http://sri4f1tracks.jwegrzyn.sri.pja.edu/grandprix"
+           elementFormDefault = "qualified">
+
+    <xs:complexType name="grandprixDto">
+        <xs:sequence>
+            <xs:element name="round" type = "xs:int" minOccurs="0"/>
+            <xs:element name="grandPrix" type = "xs:string"/>
+            <xs:element name="length" type = "xs:double" />
+            <xs:element name="turns" type = "xs:int"/>
+            <xs:element name="trackrecord" type = "xs:string"/>
+            <xs:element name="numberOfDRSZones" type = "xs:int"/>
+            <xs:element name="clockwise" type ="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getGrandPrixRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGrandPrixResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="grandPrix" type = "tns:grandprixDto" maxOccurs = "unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addGrandPrixRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="grandPrix" type="tns:grandprixDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addGrandPrixResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="round" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGrandPrixByRoundRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Round" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGrandPrixByRoundResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="grandPrix" type="tns:grandprixDto" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteGrandPrixByRoundRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="round" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteGrandPrixByRoundResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="grandPrix" type="tns:grandprixDto" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGrandPrixByClockWiseRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clockwise" type="xs:boolean"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getGrandPrixByClockWiseResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="grandPrix" type = "tns:grandprixDto" maxOccurs = "unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="orderGrandPrixByLengthRequest">
+        <xs:complexType>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="orderGrandPrixByLengthResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="grandPrix" type = "tns:grandprixDto" maxOccurs = "unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
+
+
+
